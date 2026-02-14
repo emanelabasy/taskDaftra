@@ -24,7 +24,7 @@ class InventoryRepository extends BaseRepository
     public function list($filters)
     {
         return $this->query($filters)
-                ->orderBy($filter['sort']??'id', $filter['direction']??'DESC')
+                ->orderBy($filters['sort']??'id', $filters['direction']??'DESC')
                 ->cursorPaginate(perPage: $this->paginationLimit($filters['limit']))
                 ->withQueryString();
     }
